@@ -699,7 +699,9 @@ try:
                      }, f)
 
     ####### parsing results
-    res = parse_breeding_results(city_index, idata, wintering_df, ess_, rhat_, bfmi_, train_roc_auc, test_roc_auc,
+    res = parse_wintering_results(city_index, idata, wintering_df, ess_, rhat_, bfmi_, 
+                                 roc_auc_score(y_train, post_bi),
+                                 roc_auc_score(y_test, y_pred),
                           X_train_Cropland_std, X_train_Built_up_std)
     res.reset_index(drop=False).to_csv(f'{wintering_prefix}_parsed.csv', index=False)
     
@@ -1050,7 +1052,9 @@ try:
 
 
     ####### parsing results
-    res = parse_breeding_results(city_index, idata, breeding_df, ess_, rhat_, bfmi_, train_roc_auc, test_roc_auc,
+    res = parse_breeding_results(city_index, idata, breeding_df, ess_, rhat_, bfmi_, 
+                                 roc_auc_score(y_train, post_bi),
+                                 roc_auc_score(y_test, y_pred),
                           X_train_Cropland_std, X_train_Built_up_std)
     res.reset_index(drop=False).to_csv(f'{breeding_prefix}_parsed.csv', index=False)
     
