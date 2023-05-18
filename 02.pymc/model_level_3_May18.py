@@ -34,7 +34,7 @@ city_index = str(sys.argv[1])
 import os
 out_path = f'/beegfs/store4/chenyangkang/06.ebird_data/42.City_and_migration/02.pymc/output/{city_index}'
     
-from parse_psmc_res import *
+from parse_pymc_res import *
 
 # %%
 #####
