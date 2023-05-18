@@ -18,7 +18,7 @@ filterwarnings('ignore')
 pd.set_option('display.max_row', 100)
 
 
-def parse_wintering_results(city_index, idata, df_ori, ess_, rhat_, bmfi_, train_roc_auc, test_roc_auc,
+def parse_wintering_results(city_index, idata, df_ori, ess_, rhat_, bfmi_, train_roc_auc, test_roc_auc,
                           X_train_Cropland_std, X_train_Built_up_std):
     
     spring_departure_urban_effect = np.concatenate(idata.posterior['spring_departure_urban_effect'].values, axis=0)
@@ -55,7 +55,7 @@ def parse_wintering_results(city_index, idata, df_ori, ess_, rhat_, bmfi_, train
             'ess_fall_arrival_cropland_effect':ess_['fall_arrival_Cropland_effect'].values[line['year_index'],line['sp_index']],
             'rhat_fall_arrival_cropland_effect':rhat_['fall_arrival_Cropland_effect'].values[line['year_index'],line['sp_index']],
 
-            'mean_bmfi':np.mean(bmfi_),
+            'mean_bfmi':np.mean(bfmi_),
             
             'train_roc_auc':train_roc_auc,
             'test_roc_auc':test_roc_auc
@@ -72,7 +72,7 @@ def parse_wintering_results(city_index, idata, df_ori, ess_, rhat_, bmfi_, train
     
 
 
-def parse_breeding_results(city_index, idata, df_ori, ess_, rhat_, bmfi_, train_roc_auc, test_roc_auc,
+def parse_breeding_results(city_index, idata, df_ori, ess_, rhat_, bfmi_, train_roc_auc, test_roc_auc,
                           X_train_Cropland_std, X_train_Built_up_std):
     
     spring_arrival_urban_effect = np.concatenate(idata.posterior['spring_arrival_urban_effect'].values, axis=0)
@@ -109,7 +109,7 @@ def parse_breeding_results(city_index, idata, df_ori, ess_, rhat_, bmfi_, train_
             'ess_fall_departure_cropland_effect':ess_['fall_departure_Cropland_effect'].values[line['year_index'],line['sp_index']],
             'rhat_fall_departure_cropland_effect':rhat_['fall_departure_Cropland_effect'].values[line['year_index'],line['sp_index']],
 
-            'mean_bmfi':np.mean(bmfi_),
+            'mean_bfmi':np.mean(bfmi_),
             
             'train_roc_auc':train_roc_auc,
             'test_roc_auc':test_roc_auc
